@@ -1,0 +1,6 @@
+ng serve --open
+ng generate component 
+ng generate class
+ng generate directive
+ng generate module
+ng generate service
