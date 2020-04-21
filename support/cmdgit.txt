@@ -4,3 +4,4 @@ git push origin master
 git branch -a
 git checkout dev
 git push -u origin branchName
+git pull --rebase
