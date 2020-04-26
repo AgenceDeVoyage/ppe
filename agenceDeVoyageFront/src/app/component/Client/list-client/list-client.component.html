@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="card">
+    <h5 class="card-header">Add new User</h5>
+    <div class="card-body">
+      <form class="form-inline">
+        <label class="sr-only" for="inlineFormInputName2">First Name</label>
+        <div class="input-group mb-2 mr-sm-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">@</div>
+          </div>
+          <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
+        </div>
+        <label class="sr-only" for="inlineFormInputGroupUsername2">Last Name</label>
+        <div class="input-group mb-2 mr-sm-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">@</div>
+          </div>
+          <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
+        </div>
+        <label class="sr-only" for="inlineFormInputGroupUsername2">E-Mail</label>
+        <div class="input-group mb-2 mr-sm-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">@</div>
+          </div>
+          <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
+        </div>
+      
+        
+      
+        <button type="submit" class="btn btn-primary mb-2">Create</button>
+      </form>
+    </div>
+  </div>
+  <table  class="table">
+    <thead   class="thead-dark">
+      <tr>
+        <th> ID </th>
+        <th> First Name </th>
+        <th> Last Name  </th>
+        <th> Mail  </th>
+        <th>Action </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let el of data">
+        <th scope="row" >{{el.id}}</th>
+        <td>{{el.nom}}</td>
+        <td>{{el.prenom}}</td>
+        <td>{{el.mail}}</td>
+        <td>
+              <span class="col sd-2">
+                <a  (click)="test(el.id)"> <i class="fas fa-trash-alt"></i></a>
+              </span>
+              <span class="col sd-2">
+                <a  (click)="test(el.id)"> <i class="fas fa-edit"></i></a>
+              </span>
+         
+        </td>
+      </tr>
+    </tbody>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+  </table>
+
+</div>
