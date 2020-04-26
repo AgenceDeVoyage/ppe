@@ -3,6 +3,7 @@ git add *
 git commit -m 'msg'
 git push origin master
 git branch -a
+#change to branch dev 
 git checkout dev
 git push -u origin branchName
 git pull --rebase
