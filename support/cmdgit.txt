@@ -7,3 +7,4 @@ git branch -a
 git checkout dev
 git push -u origin branchName
 git pull --rebase
+then move to agenceDeVoyageFront and run cmd =>npm install
