@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import {ClientService} from '../../../service/client.service';
 import { from } from 'rxjs';
 
@@ -12,7 +13,9 @@ import { from } from 'rxjs';
 export class EditClientComponent implements OnInit {
   angForm: FormGroup;
   constructor(private fb: FormBuilder,
-    private ClientService:ClientService) {
+    public dialogRef: MatDialogRef<EditClientComponent>,
+    private ClientService:ClientService,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
       this.createForm();
      }
     createForm() {
@@ -22,15 +25,26 @@ export class EditClientComponent implements OnInit {
         prenom: ['', Validators.required],
         mail: ['', Validators.required]
       });
-     /*  this.angForm.setValue({
+      this.angForm.setValue({
           id :this.data.id,
           nom :this.data.nom,
           prenom :this.data.prenom,
           mail :this.data.mail
-      }); */
+      });
     }
-   
+    onClose(){
+      console.log("close");
+        this.dialogRef.close();
+     }
+     edit( id,nom, prenom,mail){
+      this.ClientService.onEdit(id,nom, prenom,mail).subscribe(
+        data =>console.log(data)
+      );  
+      this.dialogRef.close();
+
+    }
   ngOnInit() {
+    console.log(this.data);
   }
 
 }

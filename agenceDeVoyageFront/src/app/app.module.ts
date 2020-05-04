@@ -13,12 +13,20 @@ import {ReservationService} from './service/reservation.service';
 // import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule, MatDialogRef} from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
-
+import { FileUploadModule } from 'ng2-file-upload';
+import {MatTableModule} from '@angular/material/table';
 import { DatePipe } from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatInputModule} from '@angular/material';
 import { EditClientComponent } from './component/Client/edit-client/edit-client.component';
 import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,15 +37,25 @@ import { AppRoutingModule } from './app-routing.module';
     AddVoitureComponent,
     ListVoitureComponent,
     EditClientComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
+    MatDialogModule,
+    MatFormFieldModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule,  
+    FileUploadModule,
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    MatPaginatorModule,MatInputModule, AppRoutingModule,
+    
+
   ],
   providers: [ClientService,VoitureService,ReservationService,DatePipe,ListClientComponent],
   bootstrap: [AppComponent],

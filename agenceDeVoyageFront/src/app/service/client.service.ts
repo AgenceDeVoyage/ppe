@@ -19,11 +19,14 @@ export class ClientService {
   getNom(id:number):Observable<Client>{
     return this.http.get<Client>(this.apiUrl+'/getNom/'+id);
   }
-  onCreate(client :Client){
-     this.http.post(`${this.apiUrl}/add`, client,{
-      observe:'events' 
-     })
-       .subscribe(event => console.log(event));
+  onCreate( nom, prenom,mail){
+    const obj = {
+      "nom": nom,
+      "prenom": prenom, 
+      "mail": mail
+         };
+         
+   return  this.http.post(`${this.apiUrl}/add`, obj);
   }
   onDelete(id:number){
     return this.http.delete(this.apiUrl+'/delete/'+id);
@@ -35,9 +38,6 @@ export class ClientService {
       "prenom": prenom, 
       "mail": mail
          };
-     this.http.put(`${this.apiUrl}/edit`, obj,{
-      observe:'events' 
-     })
-       .subscribe(event => console.log(event));
+    return this.http.put(`${this.apiUrl}/edit`, obj);
   }
 }
