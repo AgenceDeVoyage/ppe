@@ -8,7 +8,7 @@ public interface VoitureInterface {
 	public Collection<Voiture> getAll();
 	public Voiture getId(Long id);
 	public void delete(long id);
-	public Voiture add (Voiture c );
+	public Voiture add (Voiture v );
 	public Voiture update (Voiture c );
 
 }

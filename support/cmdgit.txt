@@ -3,6 +3,8 @@ git add *
 git commit -m 'msg'
 git push origin master
 git branch -a
+#switch branch named dev 
 git checkout dev
 git push -u origin branchName
 git pull --rebase
+then move to agenceDeVoyageFront and run cmd =>npm install
