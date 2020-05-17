@@ -1,9 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import {ClientService} from '../../../service/client.service';
 import { from } from 'rxjs';
+import { Client } from 'src/app/models/client';
 
+import { CrudService } from 'src/app/service/crud.service';
 
 @Component({
   selector: 'app-edit-client',
@@ -12,9 +13,11 @@ import { from } from 'rxjs';
 })
 export class EditClientComponent implements OnInit {
   angForm: FormGroup;
+  readonly apiUrl= ' http://localhost:8089/Client';
+
   constructor(private fb: FormBuilder,
     public dialogRef: MatDialogRef<EditClientComponent>,
-    private ClientService:ClientService,
+    private CrudService:CrudService,
     @Inject(MAT_DIALOG_DATA) public data: any) {
       this.createForm();
      }
@@ -37,12 +40,24 @@ export class EditClientComponent implements OnInit {
         this.dialogRef.close();
      }
      edit( id,nom, prenom,mail){
-      this.ClientService.onEdit(id,nom, prenom,mail).subscribe(
+ 
+      const obj = {
+        "id":id,
+        "nom": nom,
+        "prenom": prenom, 
+        "mail": mail
+           }; 
+      this.CrudService.edit(this.apiUrl,obj ).subscribe(
         data =>console.log(data)
       );  
       this.dialogRef.close();
 
     }
+
+
+ 
+
+    
   ngOnInit() {
     console.log(this.data);
   }

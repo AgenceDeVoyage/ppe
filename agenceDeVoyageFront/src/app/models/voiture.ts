@@ -1,31 +1,31 @@
 export class Voiture {
-    private _Matricule: number;
+   /*  private _matricule: number;
     public get Matricule(): number {
-        return this._Matricule;
+        return this._matricule;
     }
-    public set Matricule(value: number) {
-        this._Matricule = value;
+    public set matricule(value: number) {
+        this._matricule = value;
     }
-	private _Marque: String;
-    public get Marque(): String {
-        return this._Marque;
+	private _marque: String;
+    public get marque(): String {
+        return this._marque;
     }
-    public set Marque(value: String) {
-        this._Marque = value;
+    public set marque(value: String) {
+        this._marque = value;
     }
-	private _Type: String;
-    public get Type(): String {
-        return this._Type;
+	private _type: String;
+    public get type(): String {
+        return this._type;
     }
-    public set Type(value: String) {
-        this._Type = value;
+    public set type(value: String) {
+        this._type = value;
     }
-	private _Capacite: number;
-    public get Capacite(): number {
-        return this._Capacite;
+	private _capacite: number;
+    public get capacite(): number {
+        return this._capacite;
     }
-    public set Capacite(value: number) {
-        this._Capacite = value;
+    public set capacite(value: number) {
+        this._capacite = value;
     }
     private _image: String;
     public get image(): String {
@@ -33,15 +33,7 @@ export class Voiture {
     }
     public set image(value: String) {
         this._image = value;
-    }
-    public toString(){
-        return this._Capacite;
-    }
-     constructor(Matricule:number,Marque:String,Type:String,Capacite:number,image:String){
-        this.Marque=Marque;
-        this.Matricule=Matricule;
-        this.Type=Type;
-        this.Capacite=Capacite;
-        this.image=image;
+    } */
+     constructor(matricule:number,marque:String,type:String,capacite:number,image:String){
     } 
 }

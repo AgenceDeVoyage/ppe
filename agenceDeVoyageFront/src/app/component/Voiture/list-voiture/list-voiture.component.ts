@@ -3,6 +3,7 @@ import {MatDialog,MatDialogConfig}from '@angular/material/dialog';
 import { AddVoitureComponent } from './../add-voiture/add-voiture.component';
 import { VoitureService } from 'src/app/service/voiture.service';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { EditVoitureComponent } from '../edit-voiture/edit-voiture.component';
 @Component({
   selector: 'app-list-voiture',
   templateUrl: './list-voiture.component.html',
@@ -29,7 +30,19 @@ export class ListVoitureComponent implements OnInit {
     DialogConfig.autoFocus=true;
     DialogConfig.width="40%";
     this.matDialog.open(AddVoitureComponent,DialogConfig);
-
+  }
+  onEdit(row){
+  
+    const DialogConfig = new MatDialogConfig();
+    DialogConfig.disableClose=true;
+    DialogConfig.autoFocus=true;
+    DialogConfig.width="40%";
+    DialogConfig.data=row;
+    this.matDialog.open(EditVoitureComponent,DialogConfig); 
+    this.matDialog.afterAllClosed.subscribe(result => {
+      this.refershVoitureList();
+    });
+    
   }
   refershVoitureList(){
     this.voitureService.getVoitureList().subscribe((results) =>  {

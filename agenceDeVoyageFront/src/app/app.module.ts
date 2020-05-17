@@ -26,6 +26,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material';
 import { EditClientComponent } from './component/Client/edit-client/edit-client.component';
 import { AppRoutingModule } from './app-routing.module';
+import { EditVoitureComponent } from './component/voiture/edit-voiture/edit-voiture.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AppRoutingModule } from './app-routing.module';
     AddVoitureComponent,
     ListVoitureComponent,
     EditClientComponent,
+    EditVoitureComponent,
     
     
   ],
@@ -59,7 +61,7 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   providers: [ClientService,VoitureService,ReservationService,DatePipe,ListClientComponent],
   bootstrap: [AppComponent],
-  entryComponents:[AddVoitureComponent,AddClientComponent,EditClientComponent,],
+  entryComponents:[AddVoitureComponent,AddClientComponent,EditClientComponent,EditVoitureComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA ] 
 })
 export class AppModule { }

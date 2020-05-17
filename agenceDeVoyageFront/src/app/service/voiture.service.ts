@@ -27,10 +27,8 @@ export class VoitureService {
       "capacite": capacite,
       "image": image
      }; */
-     this.http.post(`${this.apiUrl}/add`,v,{
-      observe:'events' 
-     })
-       .subscribe(event => console.log(event));
+     console.log("service"+v);
+     this.http.post('this.apiUrl/add',v);
   }
   onDelete(id:number){
     return this.http.delete(this.apiUrl+'/delete/'+id);
