@@ -27,6 +27,9 @@ import {MatInputModule} from '@angular/material';
 import { EditClientComponent } from './component/Client/edit-client/edit-client.component';
 import { AppRoutingModule } from './app-routing.module';
 import { EditVoitureComponent } from './component/voiture/edit-voiture/edit-voiture.component';
+import { SafeUrlPipe } from './service/safe-url.pipe.ts.service';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +42,7 @@ import { EditVoitureComponent } from './component/voiture/edit-voiture/edit-voit
     ListVoitureComponent,
     EditClientComponent,
     EditVoitureComponent,
+    SafeUrlPipe
     
     
   ],
@@ -56,12 +60,13 @@ import { EditVoitureComponent } from './component/voiture/edit-voiture/edit-voit
     MatButtonModule,
     MatIconModule,
     MatPaginatorModule,MatInputModule, AppRoutingModule,
+    MatSelectModule
     
 
   ],
-  providers: [ClientService,VoitureService,ReservationService,DatePipe,ListClientComponent],
+  providers: [ClientService,VoitureService,ReservationService,DatePipe,ListClientComponent,],
   bootstrap: [AppComponent],
-  entryComponents:[AddVoitureComponent,AddClientComponent,EditClientComponent,EditVoitureComponent],
+  entryComponents:[AddVoitureComponent,AddClientComponent,EditClientComponent,EditVoitureComponent,AddReservationComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA ] 
 })
 export class AppModule { }

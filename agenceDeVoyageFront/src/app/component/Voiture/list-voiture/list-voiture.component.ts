@@ -4,6 +4,7 @@ import { AddVoitureComponent } from './../add-voiture/add-voiture.component';
 import { VoitureService } from 'src/app/service/voiture.service';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { EditVoitureComponent } from '../edit-voiture/edit-voiture.component';
+import {DomSanitizer,SafeUrl,SafeResourceUrl} from '@angular/platform-browser';
 @Component({
   selector: 'app-list-voiture',
   templateUrl: './list-voiture.component.html',
@@ -17,8 +18,12 @@ export class ListVoitureComponent implements OnInit {
   searchKey: string;
   public data = [];
   public page = this.data.length;
+  imgURL: any;
   constructor(private matDialog:MatDialog,
-    private voitureService:VoitureService) { }
+    private sanitizer :DomSanitizer,
+    private voitureService:VoitureService) { 
+      this.imgURL ="D:/dev/mohamed/ppe/agencedevoyageBack/src/main/resources/upload/";
+    }
 
   ngOnInit() {
     this.refershVoitureList();

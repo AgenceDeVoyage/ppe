@@ -18,6 +18,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AddVoitureComponent implements OnInit {
   angForm: FormGroup;
   readonly apiUrl= ' http://localhost:8089/Voiture';
+  readonly apiUrl2= ' http://localhost:8089';
   public selectedFile;
   public event1;
   imgURL: any;
@@ -48,13 +49,13 @@ export class AddVoitureComponent implements OnInit {
 
     });
   }
+  
   onClose(){
     this.dialogRef.close();
   }  
   public  onFileChanged(event) {
     console.log(event);
     this.selectedFile = event.target.files[0];
-
     // Below part is used to display the selected image
     let reader = new FileReader();
     reader.readAsDataURL(event.target.files[0]);
@@ -66,7 +67,18 @@ export class AddVoitureComponent implements OnInit {
 
 
  // This part is for uploading
-
+ fileToUpload: File = null;
+ handleFileInput(files: FileList) {
+   this.fileToUpload = files.item(0);
+}
+uploadFileToActivity() {
+ let data = new FormData();
+ data.append('image', this.fileToUpload);
+ this.CrudService.upload(this.apiUrl2,data).subscribe(data => {
+   // do something, if upload success
+   console.log("picture name"+data)
+   });
+}
   add(matricule, marque, type,capacite,image){
     const uploadData = new FormData();
     uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
@@ -78,20 +90,26 @@ export class AddVoitureComponent implements OnInit {
       "image": "img"
      };
 
-    
-     const v = new Voiture(matricule, marque, type,capacite,"image");
-     this.CrudService.add(this.apiUrl,obj).subscribe(
-     data=> console.log(data)
-      /*  res => {console.log(res);
-        this.receivedImageData = res;
-        this.base64Data = this.receivedImageData.image;
-        this.convertedImage = 'data:image/jpeg;base64,' + this.base64Data; },
-err => console.log('Error Occured duringng saving: ' + err) */
-    );  
+      /*   this.CrudService.add(this.apiUrl,obj).subscribe(
+     data=> console.log(data));  
     this.dialogRef.close();
     this.dialogRef.afterClosed().subscribe(
       data =>console.log(data)
-    );
+    );*/
+    let data = new FormData();
+    data.append('image', this.fileToUpload);
+    this.CrudService.upload(this.apiUrl2,data).subscribe(data => {
+   console.log("picture name"+data)
+   const obj = {
+    "matricule": matricule,
+    "marque": marque,
+    "type": type, 
+    "capacite": capacite,
+    "image": data
+   };
+   this.CrudService.add(this.apiUrl,obj).subscribe(
+    data=> console.log("car : "+data));  
+   });
 
 
   }

@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
@@ -18,9 +19,11 @@ public class Voiture  {
 	private String Marque;
 	private String Type;
 	private int Capacite;
-	private String image;
+	    private String image;
 	
 	
+	public Voiture() {
+	}
 	public Voiture(Long matricule, String marque, String type, int capacite, String image) {
 		super();
 		Matricule = matricule;

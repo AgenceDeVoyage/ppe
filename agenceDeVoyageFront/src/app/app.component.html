@@ -26,7 +26,7 @@
           </a>
         </li>
         <li>
-          <a href="./icons.html">
+          <a  [routerLink]="['/listClient']">
             <i class="fas fa-address-card"></i>
             <p>Customer</p>
           </a>
@@ -39,16 +39,20 @@
         </li>
         <li>
           <a 
-           label="voitureList"
-           (click)="voitureList=true"
+           [routerLink]="['/listVoiture']"
            >
             <i class="fas fa-car"></i>          
               <p>Cars</p>
           </a>
-        </li>
-      
-        
-        
+        </li>  
+        <li>
+          <a 
+           [routerLink]="['/listReservation']"
+           >
+            <i class="fas fa-car"></i>          
+              <p>Booking Car</p>
+          </a>
+        </li>        
         <li>
           <a href="./user.html">
             <i class="now-ui-icons users_single-02"></i>
@@ -133,9 +137,7 @@
             </div>
             <div class="card-body ">
               <div id="" class="">
-                <!-- *ngIf="voitureList" -->
-                <app-list-voiture *ngIf="voitureList" ></app-list-voiture>
-                 <app-list-client *ngIf="!voitureList"></app-list-client>
+                <router-outlet></router-outlet>
               </div>
             </div>
           </div>

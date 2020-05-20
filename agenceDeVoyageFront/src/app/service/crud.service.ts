@@ -21,5 +21,8 @@ export class CrudService {
    delete(apiUrl :string,id : number){
     return this.http.put(`${apiUrl}/delete/`, id);
    }
+   upload(apiUrl :String,any :any){
+    return this.http.post(`${apiUrl}/upload`, any ,{responseType: 'text'});
+   }
 
 }

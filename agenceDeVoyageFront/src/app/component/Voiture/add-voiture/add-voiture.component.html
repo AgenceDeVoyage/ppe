@@ -67,6 +67,7 @@
       <input type="file" (change)="onFileChanged($event)"
       name="image"
       formControlName="image" 
+      (change)="handleFileInput($event.target.files)"
           #image>
   
       <img [src]="imgURL" height="200" *ngIf="imgURL">

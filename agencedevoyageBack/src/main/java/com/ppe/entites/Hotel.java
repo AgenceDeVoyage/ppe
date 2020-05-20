@@ -16,6 +16,9 @@ public class Hotel {
 	private String Mail;
 	private String image;
 	
+	public Hotel() {
+	}
+
 	public Hotel(Long idHotel, String nom, int nbEtoile, String adresse, String mail, String image) {
 		super();
 		IdHotel = idHotel;

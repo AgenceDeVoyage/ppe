@@ -30,7 +30,12 @@
         </ng-container>
         <ng-container matColumnDef="image">
             <mat-header-cell *matHeaderCellDef >image</mat-header-cell>
-            <mat-cell *matCellDef="let element"> <img src="{{element.image}}" alt=""></mat-cell>
+            <mat-cell *matCellDef="let element">
+                <img  width="64" height="36" 
+                [src]="imgURL"
+                height="50"
+               alt="">
+            </mat-cell>
           </ng-container>
         <ng-container matColumnDef="actions">
           <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>

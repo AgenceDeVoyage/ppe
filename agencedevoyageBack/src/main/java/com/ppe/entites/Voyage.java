@@ -24,6 +24,9 @@ public class Voyage  {
         @ManyToOne
     	private FileModel filemodel;
         
+		public Voyage() {
+		}
+
 		public Voyage(Long id, String nom, String description, String tarifP, String tarifBc, String tarifNc, String nb,
 				String image, FileModel filemodel) {
 			super();

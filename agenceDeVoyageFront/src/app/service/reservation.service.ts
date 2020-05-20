@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ReservationService {
 
-  constructor() { }
+export class ReservationService {
+  readonly apiUrl= ' http://localhost:8089/Client';
+
+  constructor(private http: HttpClient) { }
+  delete(id:number){
+    return this.http.delete(this.apiUrl+'/delete/'+id);
+  }
 }

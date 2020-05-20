@@ -27,7 +27,7 @@ public abstract class Booking implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long numéro_reservation;
+	private Long numero_reservation;
 
 	@ManyToOne
 	private Client client;
@@ -49,17 +49,17 @@ public abstract class Booking implements Serializable {
 	public Booking(Long numéro_reservation,  @NotNull Date dateDebutReservation,
 			@NotNull Date dateFinReservation) {
 		super();
-		this.numéro_reservation = numéro_reservation;
+		this.numero_reservation = numéro_reservation;
 		DateDebutReservation = dateDebutReservation;
 		DateFinReservation = dateFinReservation;
 	}
 
-	public Long getNuméro_reservation() {
-		return numéro_reservation;
+	public Long getNumero_reservation() {
+		return numero_reservation;
 	}
 
-	public void setNuméro_reservation(Long numéro_reservation) {
-		this.numéro_reservation = numéro_reservation;
+	public void setNumero_reservation(Long numéro_reservation) {
+		this.numero_reservation = numéro_reservation;
 	}
 
 
