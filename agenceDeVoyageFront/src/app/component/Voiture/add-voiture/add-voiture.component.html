@@ -1,5 +1,5 @@
 <h1>Create new Car</h1>
-<form [(formGroup)]="angForm" novalidate>
+<form [(formGroup)]="angForm" novalidate >
   <div class="form-group">
       <label for="exampleInputPassword1">Registration number	</label>
       <input type="number" class="form-control"
@@ -63,12 +63,15 @@
     </button>
   </div> -->
   <div class="container">
-    <input type="file"  id="img"
-    class="btn btn-success btn-s"
-     formControlName="image" 
-     accept="image/*" 
-    #image 
-    >
+    <div>
+      <input type="file" (change)="onFileChanged($event)"
+      name="image"
+      formControlName="image" 
+          #image>
+  
+      <img [src]="imgURL" height="200" *ngIf="imgURL">
+  </div>
+  <hr />
   </div>
       <div *ngIf="angForm.controls['image'].invalid && (angForm.controls['image'].dirty || angForm.controls['image'].touched)" class="alert alert-danger">
         <div *ngIf="angForm.controls['image'].errors.required">

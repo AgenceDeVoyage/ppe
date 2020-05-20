@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "agencedevoyageFront"
+  "defaultProject": "agencedevoyageFront",
+  "cli": {
+    "analytics": "28cdcdd3-d563-436c-b8fc-d5728e7dfbd3"
+  }
 }

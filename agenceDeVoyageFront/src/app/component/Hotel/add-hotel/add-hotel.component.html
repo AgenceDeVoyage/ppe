@@ -1,0 +1,105 @@
+<h1>Create new hotel</h1>
+
+<form [(formGroup)]="angForm" novalidate>
+    <div class="form-group">
+        <label for=""> Name	</label>
+        <input  type="text"
+         class="form-control"  placeholder="Enter the name"
+         formControlName="nom" 
+         #nom>
+      </div>
+      <div *ngIf="angForm.controls['nom'].invalid && (angForm.controls['nom'].dirty || angForm.controls['nom'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['nom'].errors.required">
+           Name  is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Adresee	</label>
+        <input 
+        class="form-control"
+            placeholder="Enter the adresse"
+            formControlName="adresse" 
+         #adresse>
+      </div>
+      <div *ngIf="angForm.controls['adresse'].invalid && (angForm.controls['adresse'].dirty || angForm.controls['adresse'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['adresse'].errors.required">
+          adresse  is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1"> Mail	</label>
+        <input 
+          type="text"
+          class="form-control" 
+          placeholder="Enter the Email"
+          formControlName="mail" 
+          #mail>
+      </div>
+      <div *ngIf="angForm.controls['mail'].invalid && (angForm.controls['mail'].dirty || angForm.controls['mail'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['capacite'].errors.required">
+          Email  is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for=""> NbEtoile	</label>
+        <input  type="number"
+         class="form-control"  placeholder="Enter the nbEtoile"
+         formControlName="nbEtoile" 
+         #nbEtoile>
+      </div>
+      <div *ngIf="angForm.controls['nbEtoile'].invalid && (angForm.controls['nbEtoile'].dirty || angForm.controls['nbEtoile'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['nbEtoile'].errors.required">
+           nbEtoile  is required.
+        </div>
+      </div>
+        <div class="form-group">
+          <label for=""> image	</label>
+          <input  type="text"
+           class="form-control"  placeholder="Enter the image"
+           formControlName="image" 
+           #image>
+        </div>
+        <div *ngIf="angForm.controls['image'].invalid && (angForm.controls['image'].dirty || angForm.controls['image'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['image'].errors.required">
+             image  is required.
+          </div>
+        </div>
+      <div class="form-group float-right">
+        <button  (click)="onClose()" cdkFocusInitial type="submit" class="btn btn-primary">Close</button>
+      <button  (click) = "add(nom.value,adresse.value,mail.value,nbEtoile.value,image.value)" 
+        [disabled]="angForm.pristine || angForm.invalid"
+        type="submit" class="btn btn-primary">Create</button>
+      </div>
+  
+  </form>
+
+
+
+<!-- 
+  <h1>add </h1>
+ <form
+ #myform="ngForm" (ngSubmit)="add(myform.value)">
+  <div class="form-group">
+    <label for="exampleInputEmail1">name</label>
+    <input type="text" class="form-control" id="" required aria-describedby="emailHelp" placeholder="Enter name" name="nom" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">adresse</label>
+    <input type="text" class="form-control" id="" placeholder="adresse" ngModel name="adresse">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email </label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="mail" ngModel >
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">NbEtoile</label>
+    <input type="number" class="form-control" id="" aria-describedby="" placeholder="Enter NbEtoile" ngModel name="nbEtoile">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">image</label>
+    <input type="text" class="form-control" id="" aria-describedby="" placeholder="Enter img" ngModel name="image">
+  </div>
+  <button type="submit" class="btn btn-primary">Add</button>
+  <button  (click)="onClose()" cdkFocusInitial type="submit" class="btn btn-primary">Close</button>
+</form>
+  -->

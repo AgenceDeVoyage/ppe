@@ -7,10 +7,7 @@ import { ListReservationComponent } from './component/Reservation/list-reservati
 import { AddReservationComponent } from './component/Reservation/add-reservation/add-reservation.component';
 import { AddVoitureComponent } from './component/voiture/add-voiture/add-voiture.component';
 import { ListVoitureComponent } from './component/voiture/list-voiture/list-voiture.component';
-import {ClientService} from './service/client.service';
-import {VoitureService} from './service/voiture.service';
-import {ReservationService} from './service/reservation.service';
-// import { HttpClientModule } from '@angular/common/http';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule, MatDialogRef} from '@angular/material';
@@ -26,6 +23,14 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material';
 import { EditClientComponent } from './component/Client/edit-client/edit-client.component';
 import { AppRoutingModule } from './app-routing.module';
+import { EditVoitureComponent } from './component/voiture/edit-voiture/edit-voiture.component';
+import { AddHotelComponent } from './component/Hotel/add-hotel/add-hotel.component';
+import { EditHotelComponent } from './component/Hotel/edit-hotel/edit-hotel.component';
+import { ListHotelComponent } from './component/Hotel/list-hotel/list-hotel.component';
+import { CrudService } from './service/crud.service';
+import { AddVoyageComponent } from './component/Voyage/add-voyage/add-voyage.component';
+import { EditVoyageComponent } from './component/Voyage/edit-voyage/edit-voyage.component';
+import { ListVoyageComponent } from './component/Voyage/list-voyage/list-voyage.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +42,15 @@ import { AppRoutingModule } from './app-routing.module';
     AddVoitureComponent,
     ListVoitureComponent,
     EditClientComponent,
+    EditVoitureComponent,
+    AddHotelComponent,
+    EditHotelComponent,
+    ListHotelComponent,
+    AddVoyageComponent,
+    EditVoyageComponent,
+    ListVoyageComponent,
+    
+   
     
     
   ],
@@ -53,13 +67,13 @@ import { AppRoutingModule } from './app-routing.module';
     MatTableModule,
     MatButtonModule,
     MatIconModule,
-    MatPaginatorModule,MatInputModule, AppRoutingModule,
+    MatPaginatorModule,MatInputModule, AppRoutingModule, 
     
 
   ],
-  providers: [ClientService,VoitureService,ReservationService,DatePipe,ListClientComponent],
+  providers: [CrudService,DatePipe,ListClientComponent,ListVoyageComponent],
   bootstrap: [AppComponent],
-  entryComponents:[AddVoitureComponent,AddClientComponent,EditClientComponent,],
+  entryComponents:[AddVoitureComponent,AddClientComponent,AddHotelComponent,EditClientComponent,EditHotelComponent,EditVoitureComponent,AddVoyageComponent,EditVoyageComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA ] 
 })
 export class AppModule { }

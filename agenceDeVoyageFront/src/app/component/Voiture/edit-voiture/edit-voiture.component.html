@@ -1,0 +1,75 @@
+<form [(formGroup)]="angForm"  novalidate>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Registration number	</label>
+        <input type="number" class="form-control"
+          placeholder="Enter the Registration number"
+          formControlName="matricule" 
+          #matricule>
+      </div>
+      <div *ngIf="angForm.controls['matricule'].invalid && (angForm.controls['matricule'].dirty || angForm.controls['matricule'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['matricule'].errors.required">
+          matricule  is required.
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="">Mark	</label>
+          <input  type="text"
+           class="form-control"  placeholder="Enter the Mark"
+           formControlName="marque" 
+           #marque>
+        </div>
+        <div *ngIf="angForm.controls['marque'].invalid && (angForm.controls['marque'].dirty || angForm.controls['marque'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['marque'].errors.required">
+            marque  is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="">Type	</label>
+          <input class="form-control"
+              placeholder="Enter the Type"
+              formControlName="type" 
+           #type>
+        </div>
+        <div *ngIf="angForm.controls['type'].invalid && (angForm.controls['type'].dirty || angForm.controls['type'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['type'].errors.required">
+            type  is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1"> Capacity	</label>
+          <input 
+            class="form-control" 
+            placeholder="Enter the Capacity"
+            formControlName="capacite" 
+            #capacite>
+        </div>
+        <div *ngIf="angForm.controls['capacite'].invalid && (angForm.controls['capacite'].dirty || angForm.controls['capacite'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['capacite'].errors.required">
+            capacite  is required.
+          </div>
+        </div>
+    <div class="container">
+      <div>
+        <input type="text" 
+        class="form-control" 
+        name="image"
+        formControlName="image" 
+            #image>
+        </div>
+    <hr />
+    </div>
+        <div *ngIf="angForm.controls['image'].invalid && (angForm.controls['image'].dirty || angForm.controls['image'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['image'].errors.required">
+            image  is required.
+          </div>
+        </div>
+        <div class="form-group float-right">
+          <button  (click)="onClose(angForm)" cdkFocusInitial type="submit" class="btn btn-primary">Close</button>
+        <button  
+            (click)="edit(angForm)"
+          [disabled]="angForm.pristine || angForm.invalid"
+          type="submit" class="btn btn-primary">Edit</button>
+        </div>
+         
+    </form>
+  

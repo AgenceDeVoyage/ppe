@@ -1,9 +1,9 @@
 import { Component, OnInit,ViewChild  } from '@angular/core';
 import { MatTableDataSource, MatSort, MatPaginator,MatDialogRef } from '@angular/material';
-import { ClientService } from 'src/app/service/client.service';
 import {MatDialog,MatDialogConfig}from '@angular/material/dialog';
 import { AddClientComponent } from './../add-client/add-client.component';
 import { EditClientComponent } from '../edit-client/edit-client.component';
+import { CrudService } from 'src/app/service/crud.service';
 
 
 @Component({
@@ -18,8 +18,10 @@ export class ListClientComponent implements OnInit {
   paginator: MatPaginator;
   searchKey: string;
   public data = [];
+  readonly apiUrl= ' http://localhost:8089/Client';
 
-  constructor(private clientservice:ClientService,
+
+  constructor(private CrudService:CrudService,
     private matDialog:MatDialog,private matDialog2:MatDialog ) { 
       this.matDialog.afterAllClosed.subscribe(result => {
         this.refershClientList();
@@ -40,12 +42,13 @@ export class ListClientComponent implements OnInit {
     
   }
   refershClientList(){
-    this.clientservice.getClientList().subscribe((results) =>  {
+    this.CrudService.getList(this.apiUrl).subscribe((results) =>  {
       this.data = results;
       this.listData = new MatTableDataSource(this.data);
       console.log("data =" + JSON.stringify(results));
       console.log("nb "+this.data.length);
     })
+    
   }
   onSearchClear() {
     this.searchKey = "";
@@ -55,7 +58,10 @@ export class ListClientComponent implements OnInit {
   applyFilter() {
     this.listData.filter = this.searchKey.trim().toLowerCase();
   }
-  onCreate(){
+   getList(){
+    return this.CrudService.getList(this.apiUrl).subscribe(result => {this.data=result,console.log("data =",this.data);});
+   }
+   onCreate(){
     const DialogConfig = new MatDialogConfig();
     DialogConfig.disableClose=true;
     DialogConfig.autoFocus=true;
@@ -85,7 +91,7 @@ export class ListClientComponent implements OnInit {
   }
 
   onDelete(id){
-    this.clientservice.onDelete(id)
+    this.CrudService.delete(this.apiUrl,id)
       .subscribe(
         data => {
           console.log(data);
@@ -93,6 +99,6 @@ export class ListClientComponent implements OnInit {
         },
         error => console.log(error));
     }
- 
 
+  
 }

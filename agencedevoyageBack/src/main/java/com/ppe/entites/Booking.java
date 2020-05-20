@@ -1,6 +1,7 @@
 package com.ppe.entites;
 
 import java.io.Serializable;
+
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -16,8 +17,6 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreType;
 
 
 @Entity

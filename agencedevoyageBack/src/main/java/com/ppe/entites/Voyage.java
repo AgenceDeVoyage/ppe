@@ -2,6 +2,7 @@ package com.ppe.entites;
 
 import java.util.Date;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,9 +21,11 @@ public class Voyage  {
 		private String TarifNc;
 		private String Nb;
         private String image;
-        
-        @ManyToOne
-    	private FileModel filemodel;
+
+        public Voyage() {
+        	super();
+        }
+    
         
 		public Voyage(Long id, String nom, String description, String tarifP, String tarifBc, String tarifNc, String nb,
 				String image, FileModel filemodel) {
@@ -35,7 +38,6 @@ public class Voyage  {
 			TarifNc = tarifNc;
 			Nb = nb;
 			this.image = image;
-			this.filemodel = filemodel;
 		}
 
 		public Long getId() {
@@ -102,16 +104,7 @@ public class Voyage  {
 			this.image = image;
 		}
 
-		public FileModel getFilemodel() {
-			return filemodel;
-		}
-
-		public void setFilemodel(FileModel filemodel) {
-			this.filemodel = filemodel;
-		}
-
-		
-
+	
 		
 
 		

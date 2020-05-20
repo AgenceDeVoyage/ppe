@@ -21,6 +21,11 @@ public class Voiture  {
 	private String image;
 	
 	
+	
+	public Voiture() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Voiture(Long matricule, String marque, String type, int capacite, String image) {
 		super();
 		Matricule = matricule;

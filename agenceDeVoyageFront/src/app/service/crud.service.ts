@@ -19,7 +19,7 @@ export class CrudService {
     return this.http.put(`${apiUrl}/edit`, object);
    }
    delete(apiUrl :string,id : number){
-    return this.http.put(`${apiUrl}/delete/`, id);
+    return this.http.delete(apiUrl +'/delete/'+ id);
    }
 
 }
