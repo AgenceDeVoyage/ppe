@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class ReservationService {
-  readonly apiUrl= ' http://localhost:8089/Client';
+  readonly apiUrl= ' http://localhost:8089/Reservation';
 
   constructor(private http: HttpClient) { }
   delete(id:number){

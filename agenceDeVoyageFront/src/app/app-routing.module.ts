@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ListClientComponent } from './component/Client/list-client/list-client.component';
 import { ListVoitureComponent } from './component/voiture/list-voiture/list-voiture.component';
 import { ListReservationComponent } from './component/Reservation/list-reservation/list-reservation.component';
+import { AccueilComponent } from './site/accueil/accueil.component';
 import { AddReservationComponent } from './component/Reservation/add-reservation/add-reservation.component';
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'listVoiture', component: ListVoitureComponent },
   { path: 'listReservation', component: ListReservationComponent },
   { path: 'addReservation', component: AddReservationComponent },
+  { path: 'accueil', component: AccueilComponent },
 
 ];
 

@@ -29,6 +29,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { EditVoitureComponent } from './component/voiture/edit-voiture/edit-voiture.component';
 import { SafeUrlPipe } from './service/safe-url.pipe.ts.service';
 import {MatSelectModule} from '@angular/material/select';
+import { AccueilComponent } from './site/accueil/accueil.component';
 
 
 @NgModule({
@@ -42,8 +43,8 @@ import {MatSelectModule} from '@angular/material/select';
     ListVoitureComponent,
     EditClientComponent,
     EditVoitureComponent,
-    SafeUrlPipe
-    
+    SafeUrlPipe,
+    AccueilComponent,
     
   ],
   imports: [

@@ -1,4 +1,5 @@
-<div class="wrapper ">
+<app-accueil *ngIf="show" ></app-accueil>
+<div class="wrapper " *ngIf="!show">
   <div class="sidebar  " data-color="gray">
     <!--
       Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
