@@ -13,7 +13,7 @@ import { CrudService } from 'src/app/service/crud.service';
 })
 export class ListClientComponent implements OnInit {
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id', 'mail', 'nom', 'prenom','actions'];
+  displayedColumns: string[] = ['id','nom', 'prenom','mail','genre','nationalite' ,'civilite','idPassport','dateExp', 'actions'];
    sort: MatSort;
   paginator: MatPaginator;
   searchKey: string;
@@ -71,18 +71,23 @@ export class ListClientComponent implements OnInit {
       this.refershClientList();
     });
   }
-  onEdit(id,nom,prenom,mail){
-    const obj = {
+  onEdit(row){
+    /*const obj = {
       "id" :id,
       "nom": nom,
       "prenom": prenom, 
-      "mail": mail
-         };
+      "mail": mail,
+      "civilite":civilite,
+ "genre":genre,
+ "nationalite":nationalite,
+ "idPassport":idPassport,
+ "dateExp":dateExp,
+         }; */
     const DialogConfig = new MatDialogConfig();
     DialogConfig.disableClose=true;
     DialogConfig.autoFocus=true;
     DialogConfig.width="40%";
-    DialogConfig.data=obj;
+    DialogConfig.data=row;
     this.matDialog.open(EditClientComponent,DialogConfig); 
     this.matDialog.afterAllClosed.subscribe(result => {
       this.refershClientList();

@@ -1,10 +1,18 @@
 package com.ppe.entites;
 
 import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.sun.istack.NotNull;
 
 @Entity
 public class Client implements Serializable {
@@ -13,25 +21,40 @@ public class Client implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+
 	private Long id;
+    private String civilite;
 	private String nom;
 	private String prenom;
 	private String mail;
+	private String genre;
+	private String nationalite;
+	private long idPassport;
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@NotNull
+	private Date  dateExp;
 
 	public Client() {
 	}
 
-	public Client(Long id, String nom, String prenom, String mail) {
+	public Client(Long id, String nom,  String prenom, String mail ,String genre,String nationalite,String civilite, long idPassport,Date  dateExp) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.mail = mail;
+	    this.civilite =civilite;
+	    this.genre=genre;
+	     this.nationalite=nationalite;
+		 this.idPassport=idPassport;
+		 this.dateExp=dateExp;
+
 	}
 
 	@Override
 	public String toString() {
-		return "Client [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + "]";
+		return "Client [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ",]";
 	}
 
 	@Override
@@ -89,6 +112,46 @@ public class Client implements Serializable {
 
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+
+	public String getCivilite() {
+		return civilite;
+	}
+
+	public void setCivilite(String civilite) {
+		this.civilite = civilite;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public String getNationalite() {
+		return nationalite;
+	}
+
+	public void setNationalite(String nationalite) {
+		this.nationalite = nationalite;
+	}
+
+	public long getIdPassport() {
+		return idPassport;
+	}
+
+	public void setIdPassport(long idPassport) {
+		this.idPassport = idPassport;
+	}
+
+	public Date getDateExp() {
+		return dateExp;
+	}
+
+	public void setDateExp(Date dateExp) {
+		this.dateExp = dateExp;
 	}
 
 }

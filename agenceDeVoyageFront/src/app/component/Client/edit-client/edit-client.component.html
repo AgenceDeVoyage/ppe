@@ -9,7 +9,7 @@
          #id disabled>
       </div>
      
-    <div class="form-group">
+      <div class="form-group">
         <label for="">First Name	</label>
         <input  type="text"
          class="form-control"  placeholder="Enter the name"
@@ -21,6 +21,7 @@
           First Name  is required.
         </div>
       </div>
+    
       <div class="form-group">
         <label for="">Last Name	</label>
         <input class="form-control"
@@ -47,9 +48,82 @@
           Email  is required.
         </div>
       </div>
+      
+    <div class="form-check">
+      <p>Choisir votre Genre</p>
+      <label class="form-check-label" for="radio1">
+        <input type="radio" class="form-check-input" id="radio1" value="Femme"  formControlName="genre" 
+         #genre >Femme
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label" for="radio2">
+        <input type="radio" class="form-check-input" id="radio2"  value="Homme"formControlName="genre" 
+        #genre>Homme
+      </label>
+    </div>
+      <div *ngIf="angForm.controls['genre'].invalid && (angForm.controls['genre'].dirty || angForm.controls['genre'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['genre'].errors.required">
+          genre   is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">nationalité	</label>
+        <input  type="text"
+         class="form-control"  placeholder="Enter the civilité"
+         formControlName="nationalite" 
+         #nationalite>
+      </div>
+      <div *ngIf="angForm.controls['nationalite'].invalid && (angForm.controls['nationalite'].dirty || angForm.controls['nationalite'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['nationalite'].errors.required">
+          nationalite   is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Civilité	</label>
+       <select  type="text"
+         class="form-control"  placeholder="Enter the civilité"
+         formControlName="civilite" 
+         #civilite><option>Madame</option>
+         <option>Mademoiselle</option>
+         <option>Monsieur</option></select> 
+      </div>
+      <div *ngIf="angForm.controls['civilite'].invalid && (angForm.controls['civilite'].dirty || angForm.controls['civilite'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['civilite'].errors.required">
+          civilité   is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">IdPassport	</label>
+        <input  type="text"
+         class="form-control"  placeholder="Enter the civilité"
+         formControlName="idPassport" 
+         #idPassport>
+      </div>
+      <div *ngIf="angForm.controls['idPassport'].invalid && (angForm.controls['idPassport'].dirty || angForm.controls['idPassport'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['idPassport'].errors.required">
+          idPassport is required.
+        </div>
+      </div>
+        <div class="form-group">
+          <p> Date Expiration </p>
+           <mat-form-field>
+             <mat-label>select date </mat-label>
+             <input matInput [matDatepicker]="datepickercolor" formControlName="dateExp" 
+             #dateExp>
+             <mat-datepicker-toggle matSuffix [for]="datepickercolor">
+             </mat-datepicker-toggle>
+             <mat-datepicker #datepickercolor color="warn"></mat-datepicker>
+           </mat-form-field>  
+        </div>
+      <div *ngIf="angForm.controls['dateExp'].invalid && (angForm.controls['dateExp'].dirty || angForm.controls['dateExp'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['dateExp'].errors.required">
+          dateExp  is required.
+        </div>
+      </div>
       <div class="form-group float-right">
         <button  (click)="onClose()" cdkFocusInitial type="submit" class="btn btn-primary">Close</button>
-      <button  (click) = "edit(id.value,nom.value, prenom.value,mail.value)" 
+      <button  (click) = "edit(angForm)" 
         type="submit" class="btn btn-primary">Edit</button>
       </div>
   

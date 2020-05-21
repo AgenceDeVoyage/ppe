@@ -16,6 +16,18 @@
         <mat-header-cell *matHeaderCellDef  >id</mat-header-cell>
         <mat-cell  *matCellDef="let element">{{element.id}}</mat-cell>
       </ng-container>
+      <ng-container matColumnDef="civilite">
+        <mat-header-cell *matHeaderCellDef >civilité</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.civilite}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="genre">
+        <mat-header-cell *matHeaderCellDef >genre</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.genre}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="idPassport">
+        <mat-header-cell *matHeaderCellDef >idPassport</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.idPassport}}</mat-cell>
+      </ng-container>
       <ng-container matColumnDef="mail">
         <mat-header-cell *matHeaderCellDef  >Email</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.mail}}</mat-cell>
@@ -28,10 +40,18 @@
         <mat-header-cell *matHeaderCellDef >Last Name</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.prenom}}</mat-cell>
       </ng-container>
+      <ng-container matColumnDef="dateExp">
+        <mat-header-cell *matHeaderCellDef >Date expiration </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.dateExp}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="nationalite">
+        <mat-header-cell *matHeaderCellDef >Nationalité </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.nationalite}}</mat-cell>
+      </ng-container>
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button mat-icon-button (click)="onEdit(row.id,row.nom,row.prenom,row.prenom)"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
           <button mat-icon-button color="warn"  (click)=" onDelete(row.id)"><mat-icon>delete_outline</mat-icon></button>
         </mat-cell>
       </ng-container>

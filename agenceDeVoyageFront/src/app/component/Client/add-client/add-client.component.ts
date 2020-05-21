@@ -30,18 +30,33 @@ export class AddClientComponent implements OnInit {
       this.angForm = this.fb.group({
         nom: ['', Validators.required],
         prenom: ['', Validators.required],
-        mail: ['', Validators.required]
+        mail: ['', Validators.required],
+       
+        genre: ['', Validators.required],
+        nationalite: ['', Validators.required],
+        civilite: ['', Validators.required],
+        idPassport: ['', Validators.required],
+        dateExp: ['', Validators.required],
+
+
       });
     }
     onClose(){
      console.log("close");
        this.dialogRef.close();
     }
-    add( nom, prenom,mail ){
+    add(nom, prenom,mail,genre,nationalite ,civilite,idPassport,dateExp){
 const obj = {
  "nom": nom,
  "prenom": prenom, 
- "mail": mail
+ "mail": mail,
+ "civilite":civilite,
+ "genre":genre,
+ "nationalite":nationalite,
+ "idPassport":idPassport,
+ "dateExp":dateExp,
+
+
     };
       this.CrudService.add(this.apiUrl,obj ).subscribe(
         data =>console.log(data)

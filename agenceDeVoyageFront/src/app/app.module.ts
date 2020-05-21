@@ -7,7 +7,7 @@ import { ListReservationComponent } from './component/Reservation/list-reservati
 import { AddReservationComponent } from './component/Reservation/add-reservation/add-reservation.component';
 import { AddVoitureComponent } from './component/voiture/add-voiture/add-voiture.component';
 import { ListVoitureComponent } from './component/voiture/list-voiture/list-voiture.component';
-
+import {MatDatepickerModule,MatNativeDateModule} from '@angular/material'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule, MatDialogRef} from '@angular/material';
@@ -68,7 +68,7 @@ import { ListVoyageComponent } from './component/Voyage/list-voyage/list-voyage.
     MatButtonModule,
     MatIconModule,
     MatPaginatorModule,MatInputModule, AppRoutingModule, 
-    
+    MatDatepickerModule,MatNativeDateModule,
 
   ],
   providers: [CrudService,DatePipe,ListClientComponent,ListVoyageComponent],

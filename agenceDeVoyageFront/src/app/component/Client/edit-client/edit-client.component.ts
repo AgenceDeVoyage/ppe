@@ -26,33 +26,49 @@ export class EditClientComponent implements OnInit {
         id: ['',],
         nom: ['', Validators.required],
         prenom: ['', Validators.required],
-        mail: ['', Validators.required]
+        mail: ['', Validators.required],
+        civilite: ['', Validators.required],
+        genre: ['', Validators.required],
+        nationalite: ['', Validators.required],
+        idPassport: ['', Validators.required],
+        dateExp: ['', Validators.required],
       });
       this.angForm.setValue({
           id :this.data.id,
           nom :this.data.nom,
           prenom :this.data.prenom,
-          mail :this.data.mail
+          mail :this.data.mail,
+          genre:this.data.genre,
+
+          nationalite:this.data.nationalite,
+        
+          civilite :this.data.civilite,
+          idPassport:this.data.idPassport,
+          dateExp:this.data.dateExp,
       });
     }
     onClose(){
       console.log("close");
         this.dialogRef.close();
      }
-     edit( id,nom, prenom,mail){
+  
  
-      const obj = {
+     /*  const obj = {
         "id":id,
         "nom": nom,
         "prenom": prenom, 
-        "mail": mail
-           }; 
-      this.CrudService.edit(this.apiUrl,obj ).subscribe(
-        data =>console.log(data)
-      );  
-      this.dialogRef.close();
-
-    }
+        "mail": mail,
+        "civilite":civilite,
+        "genre":genre,
+  "nationalite":nationalite,
+ "idPassport":idPassport,
+ "dateExp":dateExp,
+           }; */ 
+           edit(angForm){
+            this.CrudService.edit(this.apiUrl,angForm.value).subscribe(
+              res =>console.log("res"+res)
+            );
+          }
 
 
  
