@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import  *  as  data  from  '../../data.json';
 
 @Component({
   selector: 'app-accueil',
@@ -10,6 +11,8 @@ export class AccueilComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    console.log(data);
+
   }
 
 }
